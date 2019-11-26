@@ -44,6 +44,10 @@ function LowestBitrateRuleClass() {
     function setup() {
     }
 
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+
     // Always use lowest bitrate
     function getMaxIndex(rulesContext) {
         // here you can get some informations aboit metrics for example, to implement the rule
@@ -61,13 +65,13 @@ function LowestBitrateRuleClass() {
         let current = abrController.getQualityFor(mediaType, streamController.getActiveStreamInfo());
 
         // If already in lowest bitrate, don't do anything
-        if (current === 2) {
-            return SwitchRequest(context).create();
-        }
+        // if (current === 0) {
+        //     return SwitchRequest(context).create();
+        // }
 
         // Ask to switch to the lowest bitrate
         let switchRequest = SwitchRequest(context).create();
-        switchRequest.quality = 2;
+        switchRequest.quality = getRandomInt(10);
         switchRequest.reason = 'Always switching to the lowest bitrate';
         switchRequest.priority = SwitchRequest.PRIORITY.STRONG;
         return switchRequest;
