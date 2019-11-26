@@ -215,5 +215,15 @@
                 "href": "advanced/extend.html"
             }
         ]
+    },
+    {
+        "section": "custom scenarios",
+        "samples": [
+            {
+                "title": "added test scenario",
+                "description": "test adding new abr test",
+                "href": "custom-scenarios/abr/index.html"
+            }
+        ]
     }
 ]
